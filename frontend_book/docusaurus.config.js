@@ -20,7 +20,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://vercel.com/mfaisal-kits-projects/hackathon1-book-ragchatbot',
+  url: 'https://hackathon1-book-ragchatbot.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -128,6 +128,23 @@ const config = {
             ],
           },
           {
+            title: 'Resources',
+            items: [
+              {
+                label: 'ROS Documentation',
+                href: 'https://docs.ros.org/',
+              },
+              {
+                label: 'Docusaurus Guide',
+                href: 'https://docusaurus.io/docs',
+              },
+              {
+                label: 'GitHub Repository',
+                href: 'https://github.com/pcs/hackathon1-book-ragchatbot',
+              },
+            ],
+          },
+          {
             title: 'Community',
             items: [
               {
@@ -144,25 +161,21 @@ const config = {
               },
             ],
           },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/pcs/hackathon1-book-ragchatbot',
-              },
-            ],
-          },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Course. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'YOUR_APP_ID',
+        // Public API key: it is safe to commit it
+        apiKey: 'YOUR_SEARCH_API_KEY',
+        indexName: 'hackathon1-book-ragchatbot',
+        contextualSearch: true,
+        searchPagePath: 'search',
       },
     }),
 };
