@@ -3,7 +3,6 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import ModuleSlider from '@site/src/components/ModuleSlider';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -37,7 +36,6 @@ export default function Home() {
       description="Physical AI & Humanoid Robotics Course - Connecting AI Decision-Making to Physical Robot Control">
       <HomepageHeader />
       <main>
-        <ModuleSlider />
         <section className="features-section">
           <div className="container padding-horiz--md">
             <HomepageFeatures />
