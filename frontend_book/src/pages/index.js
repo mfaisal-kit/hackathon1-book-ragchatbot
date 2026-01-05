@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import ModuleSlider from '@site/src/components/ModuleSlider';
 
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
@@ -20,7 +21,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Explore the Course - 5min ⏱️
           </Link>
         </div>
       </div>
@@ -32,11 +33,16 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title={`Welcome to ${siteConfig.title}`}
+      description="Physical AI & Humanoid Robotics Course - Connecting AI Decision-Making to Physical Robot Control">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <ModuleSlider />
+        <section className="features-section">
+          <div className="container padding-horiz--md">
+            <HomepageFeatures />
+          </div>
+        </section>
       </main>
     </Layout>
   );

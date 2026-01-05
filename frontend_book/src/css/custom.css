@@ -1,23 +1,23 @@
 /**
  * Custom CSS for frontend_book Docusaurus site
- * Implements modern UI with improved accessibility and responsive design
+ * Implements light purple theme with robotics-inspired design
  */
 
-/* Modern color palette with WCAG 2.1 AA compliance */
+/* Light purple color palette with robotics-inspired accents */
 :root {
-  --ifm-color-primary: #2563eb;
-  --ifm-color-primary-dark: #1d4ed8;
-  --ifm-color-primary-darker: #1e40af;
-  --ifm-color-primary-darkest: #1e3a8a;
-  --ifm-color-primary-light: #3b82f6;
-  --ifm-color-primary-lighter: #60a5fa;
-  --ifm-color-primary-lightest: #93c5fd;
-  --ifm-color-secondary: #64748b;
-  --ifm-color-secondary-dark: #475569;
-  --ifm-color-success: #16a34a;
-  --ifm-color-info: #0ea5e9;
-  --ifm-color-warning: #d97706;
-  --ifm-color-danger: #dc2626;
+  --ifm-color-primary: #a78bfa; /* Light purple */
+  --ifm-color-primary-dark: #8b5cf6; /* Medium purple */
+  --ifm-color-primary-darker: #7c3aed; /* Darker purple */
+  --ifm-color-primary-darkest: #5b21b6; /* Deep purple */
+  --ifm-color-primary-light: #c4b5fd; /* Lighter purple */
+  --ifm-color-primary-lighter: #ddd6fe; /* Very light purple */
+  --ifm-color-primary-lightest: #f5f3ff; /* Purple-tinged white */
+  --ifm-color-secondary: #ec4899; /* Pink accent */
+  --ifm-color-secondary-dark: #db2777; /* Dark pink */
+  --ifm-color-success: #10b981; /* Emerald green */
+  --ifm-color-info: #0ea5e9; /* Sky blue */
+  --ifm-color-warning: #f59e0b; /* Amber */
+  --ifm-color-danger: #ef4444; /* Red */
   --ifm-code-font-size: 95%;
   --ifm-navbar-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ifm-footer-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -121,11 +121,75 @@ h4 {
   transition: all 0.2s ease-in-out;
   border: none;
   cursor: pointer;
+  background-color: var(--ifm-color-primary); /* Light purple */
+  color: white;
 }
 
 .button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  background-color: var(--ifm-color-primary-dark); /* Darker purple on hover */
+}
+
+.button--secondary {
+  background-color: var(--ifm-color-secondary); /* Pink accent */
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-color-secondary-dark); /* Darker pink on hover */
+}
+
+/* Special styling for primary buttons on the homepage */
+.button--primary {
+  background: linear-gradient(135deg, #000000, #333333); /* Black gradient */
+  color: white;
+  border: none;
+}
+
+.button--primary:hover {
+  background: linear-gradient(135deg, #333333, #000000); /* Reverse gradient on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient styling for module cards */
+.featureCard {
+  background: linear-gradient(135deg, var(--ifm-color-primary-lightest), var(--ifm-color-primary-lighter)); /* Light purple gradient */
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid var(--ifm-color-primary-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-secondary));
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: var(--ifm-color-primary);
+}
+
+/* Ensure module card buttons match the theme */
+.featureCard .button {
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+}
+
+.featureCard .button:hover {
+  background: linear-gradient(135deg, var(--ifm-color-primary-dark), var(--ifm-color-primary-darker));
 }
 
 /* Better spacing for content sections */
@@ -220,7 +284,7 @@ h4 {
 /* Enhanced navigation header */
 .navbar {
   box-shadow: var(--ifm-navbar-shadow);
-  background-color: white;
+  background-color: var(--ifm-color-primary-lightest);
   padding: 0.75rem 1rem;
 }
 
@@ -248,7 +312,7 @@ h4 {
 
 /* Improved footer styling */
 .footer {
-  background-color: #0f172a;
+  background-color: var(--ifm-color-primary-darkest);
   color: white;
   padding-top: 4rem;
   padding-bottom: 3rem;
@@ -257,14 +321,14 @@ h4 {
 }
 
 .footer__title {
-  color: #f1f5f9;
+  color: var(--ifm-color-primary-lighter);
   font-weight: 600;
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
 }
 
 .footer__link-item {
-  color: #cbd5e1;
+  color: var(--ifm-color-primary-light);
   transition: all 0.2s ease-in-out;
   display: block;
   padding: 0.25rem 0;

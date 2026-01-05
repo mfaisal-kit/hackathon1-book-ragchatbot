@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Physical AI & Humanoid Robotics Course',
-  tagline: 'Connecting AI Decision-Making to Physical Robot Control',
+  tagline: 'Learn how AI systems connect to and control physical humanoid robots',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -50,23 +50,9 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/mfaisal-kit/hackathon1-book-ragchatbot',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false, // Disable blog to remove it from the menu
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -86,7 +72,8 @@ const config = {
         title: 'Physical AI & Humanoid Robotics',
         logo: {
           alt: 'Physical AI & Humanoid Robotics Logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.svg',  // You can replace this with your own logo
+          srcDark: 'img/logo.svg',  // Optional dark mode version
         },
         items: [
           {
@@ -95,9 +82,8 @@ const config = {
             position: 'left',
             label: 'Modules',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/pcs/hackathon1-book-ragchatbot',
+            href: 'https://github.com/mfaisal-kit/hackathon1-book-ragchatbot',
             label: 'GitHub',
             position: 'right',
           },
@@ -135,29 +121,12 @@ const config = {
                 href: 'https://docs.ros.org/',
               },
               {
-                label: 'Docusaurus Guide',
-                href: 'https://docusaurus.io/docs',
+                label: 'NVIDIA Isaac Documentation',
+                href: 'https://docs.nvidia.com/isaac/',
               },
               {
                 label: 'GitHub Repository',
-                href: 'https://github.com/pcs/hackathon1-book-ragchatbot',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/ros2',
-              },
-              {
-                label: 'ROS Answers',
-                href: 'https://answers.ros.org/',
-              },
-              {
-                label: 'Robotics Stack Exchange',
-                href: 'https://robotics.stackexchange.com/',
+                href: 'https://github.com/mfaisal-kit/hackathon1-book-ragchatbot',
               },
             ],
           },
