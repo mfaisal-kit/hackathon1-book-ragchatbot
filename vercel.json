@@ -1,8 +1,19 @@
 {
-  "rootDirectory": "frontend_book",
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "build",
-  "installCommand": "npm install",
+  "builds": [
+    {
+      "src": "frontend_book/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "frontend_book/build/$1"
+    }
+  ],
   "env": {
     "REACT_APP_API_URL": "https://muhammadfasial-deploy-ragchatbot.hf.space"
   }
