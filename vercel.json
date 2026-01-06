@@ -1,5 +1,8 @@
 {
   "buildCommand": "cd frontend_book && npm install && npm run build",
   "outputDirectory": "frontend_book/build",
-  "installCommand": "cd frontend_book && npm install"
+  "installCommand": "cd frontend_book && npm install",
+  "env": {
+    "REACT_APP_API_URL": "https://muhammadfasial-deploy-ragchatbot.hf.space"
+  }
 }

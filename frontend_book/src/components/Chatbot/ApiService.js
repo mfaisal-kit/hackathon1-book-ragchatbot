@@ -3,10 +3,10 @@
 
 class ApiService {
   constructor() {
-    // Use environment variable if available, otherwise default to localhost
+    // Use environment variable if available, otherwise default to Hugging Face Space
     this.baseUrl = typeof process !== 'undefined' && process.env?.REACT_APP_API_URL
       ? process.env.REACT_APP_API_URL
-      : 'http://localhost:8001';
+      : 'https://muhammadfasial-deploy-ragchatbot.hf.space';
   }
 
   async query(requestData) {
