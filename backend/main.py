@@ -37,8 +37,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize RAG service
-rag_service = RAGService()
+# Initialize RAG service (deferred until needed)
+rag_service = None
+
+def get_rag_service():
+    global rag_service
+    if rag_service is None:
+        rag_service = RAGService()
+    return rag_service
 
 # Pydantic models
 class Message(BaseModel):
@@ -80,31 +86,34 @@ async def chat_endpoint(request: ChatRequest):
     Main chat endpoint that processes user messages and returns AI responses
     """
     try:
+        # Get the RAG service (initialize if needed)
+        service = get_rag_service()
+
         # Generate or use provided session ID
         session_id = request.session_id or f"session_{len(chat_sessions)}"
-        
+
         # Add user message to history
         user_message = Message(role="user", content=request.message)
         if session_id not in chat_sessions:
             chat_sessions[session_id] = []
         chat_sessions[session_id].append(user_message)
-        
+
         # Process the query through RAG pipeline
-        rag_result = await rag_service.query_and_respond(request.message)
+        rag_result = await service.query_and_respond(request.message)
         response_text = rag_result["response"]
         sources = rag_result["sources"]
-        
+
         # Add AI response to history
         ai_message = Message(role="assistant", content=response_text)
         chat_sessions[session_id].append(ai_message)
-        
+
         # Return response with sources
         response = ChatResponse(
             response=response_text,
             session_id=session_id,
             sources=sources
         )
-        
+
         return response
     except Exception as e:
         logger.error(f"Error in chat endpoint: {str(e)}")
@@ -116,9 +125,12 @@ async def query_endpoint(request: QueryRequest):
     Query endpoint for retrieving relevant documents from the vector database
     """
     try:
+        # Get the RAG service (initialize if needed)
+        service = get_rag_service()
+
         # Use the RAG service to search for documents
-        documents = await rag_service.search(request.query, request.top_k)
-        
+        documents = await service.search(request.query, request.top_k)
+
         results = [
             {
                 "id": doc.id,
@@ -129,7 +141,7 @@ async def query_endpoint(request: QueryRequest):
             }
             for doc in documents
         ]
-        
+
         return QueryResponse(results=results)
     except Exception as e:
         logger.error(f"Error in query endpoint: {str(e)}")

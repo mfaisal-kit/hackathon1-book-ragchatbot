@@ -1,4 +1,3 @@
-// package.json for the React frontend
 {
   "name": "book-rag-chatbot-frontend",
   "version": "0.1.0",
